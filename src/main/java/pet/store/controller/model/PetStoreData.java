@@ -1,6 +1,6 @@
 package pet.store.controller.model;
 
-import java.util.HashSet; 
+import java.util.HashSet;   
 import java.util.Set;
 
 import lombok.Data;
@@ -34,19 +34,19 @@ public class PetStoreData {
 		petStorePhone = petStore.getPetStorePhone();
 	
 	for (Customer customer : petStore.getCustomers()) {
-		PetStoreCustomer petStoreCustomer = new PetStoreCustomer(customer);
-		customers.add(petStoreCustomer);
+		//PetStoreCustomer petStoreCustomer = new PetStoreCustomer(customer);
+		customers.add (new PetStoreCustomer (customer)); 
 	}
 	
 	for (Employee employee : petStore.getEmployees()) {
-		PetStoreEmployee petStoreEmployee = new PetStoreEmployee(employee);
-		employees.add(petStoreEmployee);
+		//PetStoreEmployee petStoreEmployee = new PetStoreEmployee(employee);
+		employees.add(new PetStoreEmployee (employee));
 	}
 	}
-	
+
 	@Data
 	@NoArgsConstructor
-	static class PetStoreEmployee {
+	public static class PetStoreEmployee {
 		private Long employeeId;
 		private String employeeFirstName;
 		private String employeeLastName;
@@ -64,7 +64,7 @@ public class PetStoreData {
 	
 	@Data
 	@NoArgsConstructor
-	static class PetStoreCustomer {
+	public static class PetStoreCustomer {
 		private Long customerId;
 		private String customerFirstName;
 		private String customerLastName;
@@ -77,11 +77,7 @@ public class PetStoreData {
 			customerEmail = customer.getCustomerEmail();
 			
 }
-}
-
-	public Long getPetStoreId() {
-		return petStoreId;
-	}	
+}	
 }
 	
 
